@@ -1,0 +1,11 @@
+from ml_service.gis.osm_loader import load_road_network
+from ml_service.gis.spatial_index import prepare_road_geometries
+
+print("Loading road network")
+roads = load_road_network()
+
+roads = prepare_road_geometries(roads)
+
+print("TB-3 SUCCESS")
+print("Total road segments:", len(roads))
+print(roads[["highway", "geometry"]].head())
