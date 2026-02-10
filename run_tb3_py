@@ -1,11 +1,12 @@
 from ml_service.gis.osm_loader import load_road_network
 from ml_service.gis.spatial_index import prepare_road_geometries
 
-print("Loading road network")
-roads = load_road_network()
-
+print("Loading road network...")
+roads = load_road_network("Vijayawada, Andhra Pradesh, India")
 roads = prepare_road_geometries(roads)
 
-print("TB-3 SUCCESS")
+# 🔒 SAVE ONCE
+roads.to_file("data/processed/vijayawada_roads.geojson", driver="GeoJSON")
+
+print("TB-3 SUCCESS ✅")
 print("Total road segments:", len(roads))
-print(roads[["highway", "geometry"]].head())
