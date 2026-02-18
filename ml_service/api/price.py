@@ -17,9 +17,8 @@ class PriceRequest(BaseModel):
 
 
 @router.post("/predict-price")
-def get_price(request: PriceRequest):
-    input_data = request.dict()
-    price = predict_price(input_data)
+def predict(request: PriceRequest):
+    price = predict_price(request.dict())
 
     return {
         "predicted_price_per_sq_yard": price
