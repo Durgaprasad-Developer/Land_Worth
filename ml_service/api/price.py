@@ -1,25 +1,38 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 from ml_service.ml.predictor import predict_price
+from ml_service.features.spatial_engine import spatial_engine
 
 router = APIRouter()
 
 
 class PriceRequest(BaseModel):
     classification: str
-    avg_local_ward_class_knn_10: float
-    dist_highway_m: float
-    dist_main_road_m: float
-    dist_inner_road_m: float
-    dist_nearest_infra_m: float
     latitude: float
     longitude: float
 
 
 @router.post("/predict-price")
 def predict(request: PriceRequest):
-    price = predict_price(request.dict())
+
+    # Step 1: Compute spatial features
+    features = spatial_engine.compute_features(
+        request.latitude,
+        request.longitude
+    )
+
+    # Step 2: Merge everything
+    model_input = {
+        "classification": request.classification,
+        "latitude": request.latitude,
+        "longitude": request.longitude,
+        **features
+    }
+
+    # Step 3: Predict
+    price = predict_price(model_input)
 
     return {
-        "predicted_price_per_sq_yard": price
+        "predicted_price_per_sq_yard": price,
+        "features_used": features
     }
