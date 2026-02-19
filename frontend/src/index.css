@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.map-section {
+  flex: 2;
+}
+
+.panel-section {
+  flex: 1;
+  padding: 20px;
+  background: #f4f6f8;
+  border-left: 1px solid #ddd;
+}
