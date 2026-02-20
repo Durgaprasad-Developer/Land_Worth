@@ -58,7 +58,7 @@ export default function PredictionPanel({ location }) {
       {loading && <p>⏳ Calculating valuation...</p>}
 
       {result && (
-        <div style={{ marginTop: "20px" }}>
+        <div className="result-card">
           <h3>Estimated Price</h3>
           <h1>₹ {result.predicted_price_per_sq_yard}</h1>
         </div>

@@ -1,20 +1,113 @@
-body {
+/* ===== GLOBAL RESET ===== */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0f1117;
+  color: #ffffff;
+}
+
+/* ===== MAIN LAYOUT ===== */
 .app-container {
   display: flex;
   height: 100vh;
 }
 
+/* ===== MAP SECTION ===== */
 .map-section {
   flex: 2;
 }
 
+.map-section .leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* ===== PANEL SECTION ===== */
 .panel-section {
   flex: 1;
+  padding: 30px;
+  background-color: #161b22;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-left: 1px solid #222;
+}
+
+/* ===== HEADINGS ===== */
+.panel-section h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* ===== LOCATION INFO ===== */
+.panel-section p {
+  margin-bottom: 8px;
+  color: #c9d1d9;
+  font-size: 14px;
+}
+
+/* ===== DROPDOWN ===== */
+.panel-section select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #0f1117;
+  border: 1px solid #30363d;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ===== BUTTON ===== */
+.panel-section button {
+  padding: 12px;
+  background-color: #238636;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.panel-section button:hover {
+  background-color: #2ea043;
+}
+
+.panel-section button:disabled {
+  background-color: #30363d;
+  cursor: not-allowed;
+}
+
+/* ===== LOADING TEXT ===== */
+.panel-section .loading {
+  margin-top: 15px;
+  color: #58a6ff;
+}
+
+/* ===== RESULT CARD ===== */
+.result-card {
+  margin-top: 25px;
   padding: 20px;
-  background: #f4f6f8;
-  border-left: 1px solid #ddd;
+  background-color: #0f1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+}
+
+.result-card h3 {
+  font-size: 16px;
+  color: #c9d1d9;
+  margin-bottom: 10px;
+}
+
+.result-card h1 {
+  font-size: 32px;
+  color: #58a6ff;
 }
