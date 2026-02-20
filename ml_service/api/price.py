@@ -33,6 +33,6 @@ def predict(request: PriceRequest):
     price = predict_price(model_input)
 
     return {
-        "predicted_price_per_sq_yard": price,
+        "predicted_price_per_sq_yard": price ,
         "features_used": features
     }

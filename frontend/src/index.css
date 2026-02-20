@@ -111,3 +111,31 @@ body {
   font-size: 32px;
   color: #58a6ff;
 }
+
+.panel-section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #0f1117;
+  border: 1px solid #30363d;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.panel-section label {
+  font-size: 13px;
+  color: #8b949e;
+  margin-top: 10px;
+  display: block;
+}
+
+.error-box {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #3b1d1d;
+  border: 1px solid #f85149;
+  border-radius: 6px;
+  color: #f85149;
+  font-size: 14px;
+}
